@@ -152,7 +152,7 @@ background-color: hsla(var(--second-hue), 32%, 98%, .8);
 .container {
   max-width: 968px;
   margin-left: 1rem;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
 }
 
 .grid {
@@ -413,7 +413,9 @@ padding: .75rem .5rem;
     color: var(--first-color);
     margin-bottom: .5rem;
 }
-
+.about__title{
+  font-size: var(--font-medium);
+}
 .about__description{
     margin-bottom: 2rem;
 }
