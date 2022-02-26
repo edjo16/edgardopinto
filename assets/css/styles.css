@@ -142,7 +142,7 @@ background-color: hsla(var(--second-hue), 32%, 98%, .8);
 .light-theme .nav__menu{
   color: var(--text-color);
   }
-  .light-theme .about__box, .services__card, .skills__content, .work__card, .contact__card{
+  .light-theme .about__box, .services__card, .skills__content, .work__card, .contact__card, .education__card{
     box-shadow: 0 2px 8px hsla(var(--second-hue),48%, 8%, .1);
 
     }
@@ -722,10 +722,37 @@ z-index: 10;
 .contact__form-area textarea{
   resize: none;
 }
-/*=============== TESTIMONIAL ===============*/
+/*=============== EDUCATION ===============*/
+.education__container{
+max-width: 350px;
+}
+.swiper-pagination-bullet{
+  background-color: #4c6892;
+}
+.education__card{
+  background-color: var(--container-color);
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.5rem;
+  margin-bottom: 3rem;
+ 
+}
 
+.education__img{
+  width: 80px;
+  border-radius: 3rem;
+  margin-bottom: 1rem;
+}
 
-/* Swiper class */
+.education__item{
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: .25rem;
+}
+.education__list{
+  display: flex;
+ justify-content: initial;
+  align-items: center;
+}
 
 
 /*=============== CONTACT ===============*/

@@ -49,7 +49,23 @@ function activeWork(){
 
 linkWork.forEach(l=> l.addEventListener('click', activeWork))
 
-/*=============== SWIPER TESTIMONIAL ===============*/
+/*=============== SWIPER EDUCATION ===============*/
+var swiper = new Swiper(".education__container", {
+    spaceBetween: 24,
+    grabCursor:true,
+    loop: true,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    
+  });
+/*=============== SWIPER EDUCATION ===============*/
 const acLink = document.querySelectorAll('.nav__link')
 
 function activeLink(){
