@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
-import { FiVolume2, FiVolumeX } from 'react-icons/fi';
+import { FiVolume2, FiVolumeX, FiMoon, FiSun } from 'react-icons/fi';
 import { navItems } from '../../data/navigation';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
 import { useAudio } from '../../hooks/useAudio';
+import { useTheme } from '../../hooks/useTheme';
 import { scrollToId } from '../../lib/scroll';
 import { cx } from '../../lib/utils';
 import styles from './Navbar.module.css';
@@ -14,6 +15,7 @@ export function Navbar() {
   const active = useScrollSpy(ids);
   const [open, setOpen] = useState(false);
   const { enabled, toggle, play } = useAudio();
+  const { theme, toggle: toggleTheme } = useTheme();
 
   const handleNav = (id: string) => {
     play('whoosh');
@@ -50,6 +52,17 @@ export function Navbar() {
         </ul>
 
         <div className={styles.actions}>
+          <button
+            className={styles.iconBtn}
+            onClick={() => {
+              play('click');
+              toggleTheme();
+            }}
+            aria-label={theme === 'dark' ? 'Tema claro' : 'Tema oscuro'}
+            data-cursor="hover"
+          >
+            {theme === 'dark' ? <FiSun /> : <FiMoon />}
+          </button>
           <button
             className={styles.iconBtn}
             onClick={toggle}
