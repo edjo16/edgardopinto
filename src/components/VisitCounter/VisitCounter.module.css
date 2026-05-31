@@ -1,0 +1,38 @@
+.counter {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: var(--z-nav);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 99px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  background: rgba(5, 5, 5, 0.6);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  color: var(--text-dim);
+}
+
+.icon {
+  color: var(--success);
+  font-size: 0.85rem;
+}
+
+.label {
+  color: var(--text-faint);
+}
+
+.value {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .counter {
+    display: none;
+  }
+}
