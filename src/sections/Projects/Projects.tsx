@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FiArrowUpRight, FiX, FiGithub, FiZap } from 'react-icons/fi';
+import { FiArrowUpRight, FiX, FiGithub, FiZap, FiPlay } from 'react-icons/fi';
 import { projects, projectFilters, type Project } from '../../data/projects';
 import { SectionHeading } from '../../components/SectionHeading/SectionHeading';
 import { fadeUp, viewportOnce } from '../../lib/motion';
@@ -117,7 +118,13 @@ export function Projects() {
                 <span className={styles.difficulty} data-d={p.difficulty}>
                   {p.difficulty}
                 </span>
-                <span className={styles.xp}>+{p.xp} XP</span>
+                {p.demoPath ? (
+                  <span className={styles.playable}>
+                    <FiPlay /> JUGABLE
+                  </span>
+                ) : (
+                  <span className={styles.xp}>+{p.xp} XP</span>
+                )}
               </div>
               <div className={styles.cardBody}>
                 <span className={styles.cardCode}>{p.codename}</span>
@@ -184,9 +191,14 @@ export function Projects() {
                 ))}
               </div>
 
-              {selected.links && (
+              {(selected.links || selected.demoPath) && (
                 <div className={styles.modalLinks}>
-                  {selected.links.map((l) => (
+                  {selected.demoPath && (
+                    <Link to={selected.demoPath} className={styles.demoLink}>
+                      <FiPlay /> Abrir demo en vivo
+                    </Link>
+                  )}
+                  {selected.links?.map((l) => (
                     <a key={l.url} href={l.url} target="_blank" rel="noreferrer">
                       <FiGithub /> {l.label}
                     </a>

@@ -13,6 +13,8 @@ export type Project = {
   highlights: string[];
   impact?: string[];
   links?: { label: string; url: string }[];
+  /** In-app route to a live, playable demo of this project. */
+  demoPath?: string;
   /** Optional reward XP shown gamified */
   xp: number;
 };
@@ -55,6 +57,33 @@ export const projects: Project[] = [
       'Base de datos comercializable como producto multiempresa',
     ],
     xp: 5000,
+  },
+  {
+    id: 'stocksense',
+    title: 'StockSense — Inventario + Predicción de Demanda',
+    codename: 'MISSION · ORACLE',
+    category: 'platform',
+    difficulty: 'Hard',
+    status: 'Destacado',
+    summary:
+      'App de inventario con predicción de demanda, safety stock y punto de pedido calculados en el cliente.',
+    description:
+      'Demo interactivo y jugable: tabla de inventario industrial con pronóstico de demanda (media móvil, regresión lineal y suavizado exponencial), cálculo de safety stock por nivel de servicio, punto de pedido y cantidad sugerida a ordenar. Edita el stock y los parámetros para ver el recálculo en tiempo real. Toda la lógica corre en el frontend con TypeScript.',
+    image: '/img/grafico.jpg',
+    stack: ['React', 'TypeScript', 'Algoritmos de forecasting', 'SVG charts'],
+    highlights: [
+      'Pronóstico: media móvil, regresión lineal (OLS) y suavizado exponencial',
+      'Safety stock por nivel de servicio (90/95/99%)',
+      'Punto de pedido y cantidad sugerida a ordenar',
+      'KPIs y recálculo en vivo al editar el stock',
+      'Lógica pura y testeada con Vitest',
+    ],
+    impact: [
+      'Evita quiebres de stock y sobreinventario',
+      'Decisiones de compra basadas en datos',
+    ],
+    demoPath: '/demo/stocksense',
+    xp: 3000,
   },
   {
     id: 'weather-app',
