@@ -67,13 +67,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-}
-
-.skillTop {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  gap: 0.45rem;
+  min-width: 0;
 }
 
 .skillName {
@@ -81,23 +76,49 @@
   font-size: 0.95rem;
 }
 
-.skillPct {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-faint);
+.skillMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
-.bar {
-  height: 5px;
-  border-radius: 99px;
-  background: rgba(255, 255, 255, 0.06);
-  overflow: hidden;
+/* segmented level indicator (3 segments) */
+.segments {
+  display: inline-flex;
+  gap: 3px;
 }
-
-.barFill {
-  display: block;
-  height: 100%;
-  border-radius: 99px;
+.seg,
+.segOn {
+  width: 16px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background var(--dur-fast);
+}
+.segOn {
   background: linear-gradient(90deg, var(--primary), var(--secondary));
-  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
+  box-shadow: 0 0 8px rgba(var(--primary-rgb), 0.5);
+}
+.segments[data-level='Avanzado'] .segOn {
+  background: linear-gradient(90deg, var(--success), var(--primary));
+}
+.segments[data-level='Básico'] .segOn {
+  background: var(--accent);
+}
+
+.level {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.level[data-level='Avanzado'] {
+  color: var(--success);
+}
+.level[data-level='Intermedio'] {
+  color: var(--primary);
+}
+.level[data-level='Básico'] {
+  color: var(--accent);
 }

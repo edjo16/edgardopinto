@@ -6,10 +6,10 @@ import { Button } from '../components/Button/Button';
 import { AudioProvider } from '../providers/AudioProvider';
 
 describe('StatBar', () => {
-  it('renders label and value', () => {
-    render(<StatBar label="Frontend" value={92} />);
+  it('renders label and level', () => {
+    render(<StatBar label="Frontend" level="Avanzado" />);
     expect(screen.getByText('Frontend')).toBeInTheDocument();
-    expect(screen.getByText('92%')).toBeInTheDocument();
+    expect(screen.getByText('Avanzado')).toBeInTheDocument();
   });
 });
 

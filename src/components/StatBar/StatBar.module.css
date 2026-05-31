@@ -19,8 +19,19 @@
 
 .value {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--primary);
+}
+.value[data-level='Avanzado'] {
+  color: var(--success);
+}
+.value[data-level='Intermedio'] {
+  color: var(--primary);
+}
+.value[data-level='Básico'] {
+  color: var(--accent);
 }
 
 .track {

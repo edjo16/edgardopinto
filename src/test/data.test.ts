@@ -4,6 +4,8 @@ import { skills } from '../data/skills';
 import { attributes, profile } from '../data/profile';
 import { navItems } from '../data/navigation';
 
+const LEVELS = ['Básico', 'Intermedio', 'Avanzado'];
+
 describe('projects data', () => {
   it('has exactly one featured project', () => {
     expect(projects.filter((p) => p.featured)).toHaveLength(1);
@@ -25,19 +27,17 @@ describe('projects data', () => {
 });
 
 describe('skills data', () => {
-  it('keeps every level within 0-100', () => {
+  it('uses named levels instead of numeric percentages', () => {
     for (const s of skills) {
-      expect(s.level).toBeGreaterThanOrEqual(0);
-      expect(s.level).toBeLessThanOrEqual(100);
+      expect(LEVELS).toContain(s.level);
     }
   });
 });
 
 describe('profile data', () => {
-  it('exposes attributes within 0-100', () => {
+  it('exposes attributes with named levels', () => {
     for (const a of attributes) {
-      expect(a.value).toBeGreaterThanOrEqual(0);
-      expect(a.value).toBeLessThanOrEqual(100);
+      expect(LEVELS).toContain(a.level);
     }
   });
 

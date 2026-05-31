@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { FiVolume2, FiVolumeX, FiMoon, FiSun } from 'react-icons/fi';
@@ -23,6 +23,16 @@ export function Navbar() {
     setOpen(false);
   };
 
+  // Close the mobile menu on Escape.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
   return (
     <motion.header
       className={cx(styles.header, 'glass')}
@@ -30,6 +40,13 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
     >
+      {open && (
+        <button
+          className={styles.backdrop}
+          aria-label="Cerrar menú"
+          onClick={() => setOpen(false)}
+        />
+      )}
       <nav className={styles.nav}>
         <button className={styles.logo} onClick={() => handleNav('home')}>
           <span className={styles.logoMark}>EP</span>

@@ -37,7 +37,7 @@ export function About() {
           </div>
           <div className={styles.attrs}>
             {attributes.map((a, i) => (
-              <StatBar key={a.label} label={a.label} value={a.value} delay={i * 0.1} />
+              <StatBar key={a.label} label={a.label} level={a.level} delay={i * 0.1} />
             ))}
           </div>
         </motion.div>

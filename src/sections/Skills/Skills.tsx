@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { skills, skillCategories } from '../../data/skills';
+import { levelToSegments } from '../../data/levels';
 import { SectionHeading } from '../../components/SectionHeading/SectionHeading';
 import { fadeUp, stagger, viewportOnce } from '../../lib/motion';
 import styles from './Skills.module.css';
@@ -31,6 +32,7 @@ export function Skills() {
                 .filter((s) => s.category === category)
                 .map((skill) => {
                   const Icon = skill.icon;
+                  const segments = levelToSegments[skill.level];
                   return (
                     <motion.li
                       key={skill.name}
@@ -42,18 +44,26 @@ export function Skills() {
                         <Icon />
                       </span>
                       <div className={styles.skillBody}>
-                        <div className={styles.skillTop}>
-                          <span className={styles.skillName}>{skill.name}</span>
-                          <span className={styles.skillPct}>{skill.level}%</span>
-                        </div>
-                        <div className={styles.bar}>
-                          <motion.span
-                            className={styles.barFill}
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            viewport={viewportOnce}
-                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                          />
+                        <span className={styles.skillName}>{skill.name}</span>
+                        <div className={styles.skillMeta}>
+                          <span
+                            className={styles.segments}
+                            aria-hidden
+                            data-level={skill.level}
+                          >
+                            {[0, 1, 2].map((i) => (
+                              <span
+                                key={i}
+                                className={i < segments ? styles.segOn : styles.seg}
+                              />
+                            ))}
+                          </span>
+                          <span
+                            className={styles.level}
+                            data-level={skill.level}
+                          >
+                            {skill.level}
+                          </span>
                         </div>
                       </div>
                     </motion.li>
