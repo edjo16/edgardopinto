@@ -1,0 +1,83 @@
+/* ============================================================
+   DESIGN TOKENS — AAA Game UI portfolio
+   ============================================================ */
+:root {
+  /* --- Color palette --- */
+  --bg: #050505;
+  --bg-elevated: #0b0c10;
+  --bg-glass: rgba(15, 17, 22, 0.55);
+  --primary: #00f5ff; /* cyan */
+  --secondary: #a855f7; /* violet */
+  --accent: #ffb800; /* amber */
+  --text: #ffffff;
+  --text-dim: #9aa3b2;
+  --text-faint: #5b6472;
+  --danger: #ff3b5c;
+  --success: #38f9a4;
+
+  /* --- Color as RGB triplets (for alpha compositing) --- */
+  --primary-rgb: 0, 245, 255;
+  --secondary-rgb: 168, 85, 247;
+  --accent-rgb: 255, 184, 0;
+
+  /* --- Surfaces / borders --- */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --hairline: rgba(var(--primary-rgb), 0.25);
+
+  /* --- Typography --- */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --fs-hero: clamp(2.75rem, 9vw, 8rem);
+  --fs-h1: clamp(2rem, 5vw, 4rem);
+  --fs-h2: clamp(1.6rem, 3.5vw, 2.75rem);
+  --fs-h3: clamp(1.2rem, 2vw, 1.6rem);
+  --fs-body: clamp(1rem, 1.1vw, 1.125rem);
+  --fs-small: 0.8125rem;
+  --fs-label: 0.75rem;
+
+  /* --- Spacing --- */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+  --section-pad: clamp(4rem, 10vh, 9rem);
+  --container: 1280px;
+  --container-wide: 1600px;
+
+  /* --- Radii --- */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+
+  /* --- Glow / shadow --- */
+  --glow-primary: 0 0 20px rgba(var(--primary-rgb), 0.45),
+    0 0 60px rgba(var(--primary-rgb), 0.2);
+  --glow-secondary: 0 0 20px rgba(var(--secondary-rgb), 0.45),
+    0 0 60px rgba(var(--secondary-rgb), 0.2);
+  --glow-accent: 0 0 20px rgba(var(--accent-rgb), 0.45);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.55);
+
+  /* --- Motion --- */
+  --ease-game: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snap: cubic-bezier(0.7, 0, 0.2, 1);
+  --dur-fast: 0.25s;
+  --dur-med: 0.5s;
+
+  /* --- Z-index scale --- */
+  --z-bg: 0;
+  --z-content: 10;
+  --z-nav: 100;
+  --z-cursor: 9000;
+  --z-loader: 9999;
+}
+
+/* Light-ish alt theme variant (still futuristic, just inverted accents) */
+[data-theme='light'] {
+  --bg: #0e1014;
+  --bg-elevated: #161922;
+  --text-dim: #c2c9d6;
+}

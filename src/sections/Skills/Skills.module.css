@@ -1,0 +1,124 @@
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+}
+
+.column {
+  padding: 1.6rem;
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.colTitle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--primary);
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.5rem;
+  border-radius: var(--r-sm);
+  transition: background var(--dur-fast);
+}
+.skill:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.skillIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: var(--r-sm);
+  font-size: 1.4rem;
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  transition:
+    color var(--dur-fast),
+    box-shadow var(--dur-fast),
+    border-color var(--dur-fast);
+}
+.skill:hover .skillIcon {
+  color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: var(--glow-primary);
+}
+
+.skillBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.skillName {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.skillMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* segmented level indicator (3 segments) */
+.segments {
+  display: inline-flex;
+  gap: 3px;
+}
+.seg,
+.segOn {
+  width: 16px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background var(--dur-fast);
+}
+.segOn {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  box-shadow: 0 0 8px rgba(var(--primary-rgb), 0.5);
+}
+.segments[data-level='Avanzado'] .segOn {
+  background: linear-gradient(90deg, var(--success), var(--primary));
+}
+.segments[data-level='Básico'] .segOn {
+  background: var(--accent);
+}
+
+.level {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.level[data-level='Avanzado'] {
+  color: var(--success);
+}
+.level[data-level='Intermedio'] {
+  color: var(--primary);
+}
+.level[data-level='Básico'] {
+  color: var(--accent);
+}

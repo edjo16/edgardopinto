@@ -1,0 +1,141 @@
+.grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* --- identity card --- */
+.card {
+  position: relative;
+  padding: 2rem;
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.avatarWrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+}
+
+.avatarWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-strong);
+}
+
+.level {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--accent), #ff9100);
+  color: #1a1200;
+  box-shadow: var(--glow-accent);
+}
+
+.playerName {
+  font-size: 1.5rem;
+}
+
+.class {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-top: -0.6rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.attrs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 0.4rem;
+}
+
+/* --- right --- */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.bio {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.stat {
+  padding: 1.4rem;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color var(--dur-fast), transform var(--dur-fast);
+}
+.stat:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.statValue {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.4rem;
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .statGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,40 @@
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 1rem 2rem;
+  border-radius: var(--r-md);
+  background: rgba(5, 5, 5, 0.85);
+  border: 1px solid var(--accent);
+  box-shadow: var(--glow-accent), var(--shadow-soft);
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+
+.sub {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+/* Global "konami" mode — rainbow turbo glow on the whole page */
+:global(html.konami) body {
+  animation: hueShift 6s linear;
+}
+@keyframes hueShift {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
