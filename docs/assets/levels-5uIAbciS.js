@@ -1,0 +1,1 @@
+var e={Básico:45,Intermedio:68,Avanzado:92},t={Básico:1,Intermedio:2,Avanzado:3};export{t as n,e as t};
