@@ -14,8 +14,8 @@ export const profile = {
   phone: '+507 6587 6097',
   whatsapp:
     'https://api.whatsapp.com/send?phone=50765876097&text=Hola,%20más%20información!',
-  cv: '/pdf/CV-Edgardo-Pinto.pdf',
-  avatar: '/img/perfil.png',
+  cv: `${import.meta.env.BASE_URL}pdf/CV-Edgardo-Pinto.pdf`,
+  avatar: `${import.meta.env.BASE_URL}img/perfil.png`,
   about: `Ingeniero en Sistemas y desarrollador Full Stack con foco en React, Next.js, TypeScript y Node.js. En la industria tecnológica desde 2019, he gestionado TI, análisis de datos, seguridad informática y desarrollo de software. Actualmente en ACTIVE RE me especializo en soluciones de datos end-to-end: diseño de APIs REST con Node.js, arquitecturas de ingestión y procesamiento de datos, e integraciones entre sistemas heterogéneos (ERP, CRM, SQL). Trabajo bajo metodologías Scrum/Agile y aplico agentes de IA (Anthropic, OpenAI) para automatizar procesos empresariales.`,
   socials: {
     linkedin: 'https://www.linkedin.com/in/edgardo-pinto-0a935a126',
