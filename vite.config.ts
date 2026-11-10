@@ -3,9 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  // GitHub Pages serves this project repository under /edgardopinto/.
-  // Keep the root path for local development and Vercel deployments.
-  base: process.env.GITHUB_ACTIONS ? '/edgardopinto/' : '/',
+  // This repository is served from a project subpath on GitHub Pages.
+  base: '/edgardopinto/',
   build: {
     outDir: 'docs',
     emptyOutDir: true,
